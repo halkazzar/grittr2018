@@ -1,0 +1,46 @@
+July 25th:
+installed passport and passport Google strategy
+
+July 27th:
+created a google developer account. 
+
+July 30th:
+set up express routes for google auth
+tested the redirect
+Next setup handler for /auth/google/callback
+
+July 31: lunch with interns :(
+
+Aug 1: finished flow of Passport.js, not getting information about logged in user
+
+Aug 9: hooked up a Mongo DB via mongoose from mLab.com. Defined schema for User.
+
+Aug 10: added logic to pass GoogleId to MongoDB and avoid duplicate records
+
+Aug 11: added serializeUser - a function that Passport uses to setup a cookie in the browser.
+
+Aug 15: installed cookieSession 
+
+Aug 16: tested Authentication. Got Error: 
+[nodemon] starting `node index.js`
+(node:29770) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+TokenError: Code was already redeemed.
+    at Strategy.OAuth2Strategy.parseErrorResponse (/home/ubuntu/FullStack/prod/server/node_modules/passport-oauth2/lib/strategy.js:329:12)
+        at Strategy.OAuth2Strategy._createOAuthError (/home/ubuntu/FullStack/prod/server/node_modules/passport-oauth2/lib/strategy.js:376:16)
+            at /home/ubuntu/FullStack/prod/server/node_modules/passport-oauth2/lib/strategy.js:166:45
+                at /home/ubuntu/FullStack/prod/server/node_modules/oauth/lib/oauth2.js:191:18
+                    at passBackControl (/home/ubuntu/FullStack/prod/server/node_modules/oauth/lib/oauth2.js:132:9)
+                        at IncomingMessage.<anonymous> (/home/ubuntu/FullStack/prod/server/node_modules/oauth/lib/oauth2.js:157:7)
+                            at emitNone (events.js:111:20)
+                                at IncomingMessage.emit (events.js:208:7)
+                                    at endReadableNT (_stream_readable.js:1055:12)
+                                        at _combinedTickCallback (internal/process/next_tick.js:138:11)
+                                            at process._tickCallback (internal/process/next_tick.js:180:9)
+
+https://github.com/jaredhanson/passport-google-oauth/issues/82
+
+Aug 20: still not getting Auth to work. current_user api does not return a user.
+
+Aug 21: debugged failures. Still failing to write into MongoDB.
+
+Aug 22: fixed services/passport.js - sing in now works.
