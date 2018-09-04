@@ -1,5 +1,4 @@
 const passport = require('passport');
-console.log ('routes/authRoutes.js');
 
 module.exports = app => {
     app.get(
@@ -22,8 +21,6 @@ module.exports = app => {
     });
 
     app.get('/api/current_user', (req, res) => {
-            console.log('current user');
-            console.log(req.user);
             res.send(req.user);
         });
 
