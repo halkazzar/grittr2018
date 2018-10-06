@@ -1,3 +1,14 @@
+October 6th:
+fixed the proxy to handle two servers. One for backend running on express.js, second front-end running on react. Added additional urls on the Google credentials. 
+
+
+
+Sep 17
+fixed the "Invalid Host Header" by adding .env.development file and pointed it to ec2.***.amazonaws.com
+
+
+
+==============================================
 July 25th:
 installed passport and passport Google strategy
 
