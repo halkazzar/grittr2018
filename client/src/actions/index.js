@@ -6,7 +6,12 @@ export const fetchUser = () => async dispatch => {
     // dispatch is a function that holds dispatching an action
     // before axios ajax request returns a value 
     const res = await axios.get('/api/current_user');
+
     dispatch({ type: FETCH_USER, payload: res.data });
 };
 
-
+export const handleToken = (token) => async dispatch => {
+    const res = await axios.post('/api/stripe', token);
+    
+    dispatch({ type: FETCH_USER, payload: res.data });
+};
