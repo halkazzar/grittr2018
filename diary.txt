@@ -1,3 +1,7 @@
+Jan 7th: return to section to wrap up billing. Need to udpate the header with number of credits
+
+
+
 October 6th:
 fixed the proxy to handle two servers. One for backend running on express.js, second front-end running on react. Added additional urls on the Google credentials. 
 
