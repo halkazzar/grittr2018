@@ -28,6 +28,7 @@ app.use(passport.session());
 // pass 'app' as an argument to the funstion that authRoutes exports
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
+require('./routes/gritsRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
     // Express will serve up production assests
