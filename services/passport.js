@@ -31,6 +31,8 @@ passport.use(
 
         // we already have a record with a gived id
         const user = await new User ({ googleId: profile.id}).save()
+        // TODO: add new index for user
+        console.log(user._id);
         done(null, user);
     }
   )

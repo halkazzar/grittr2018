@@ -4,10 +4,13 @@ const cookieSession = require('cookie-session');
 const passport = require ('passport');
 const bodyParser = require('body-parser');
 const keys = require ('./config/keys.js');
+
+//const amazonES = require('./services/amazones');
+    
 require ('./models/User');
 require ('./services/passport');
 
-
+//connect to Mongo
 mongoose.connect (keys.mongoURI);
 
 const app = express();
