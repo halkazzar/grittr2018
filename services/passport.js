@@ -3,6 +3,8 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const mongoose = require ('mongoose');
 const keys = require ('../config/keys');
 
+const amazonES = require('./amazones');
+
 const User = mongoose.model('users');
 
 passport.serializeUser((user, done) => {
@@ -25,15 +27,20 @@ passport.use(
     async (accessToken, refreshToken, profile, done) =>{
         const existingUser = await User.findOne({ googleId: profile.id });
     
+        // we already have a record with a gived id
         if (existingUser) {
             return done(null, existingUser);
         } 
 
-        // we already have a record with a gived id
+        // Create new use in Mongo
         const user = await new User ({ googleId: profile.id}).save()
-        // TODO: add new index for user
-        console.log(user._id);
-        done(null, user);
+
+        // add new elasticsearch index for user
+        const user_index = await amazonES.elasticClient.indices.create({
+            index: user._id.toString()
+        });
+
+        done(null, user, user_index);
     }
   )
 );//creates a new instance of Passport Google Strategy
