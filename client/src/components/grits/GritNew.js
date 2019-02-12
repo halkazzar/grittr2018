@@ -1,10 +1,13 @@
+//GritNew shows GritForm and GritFormReview
+
 import React, { Component } from 'react';
+import GritForm from './GritForm';
 
 class GritNew extends Component {
     render() {
         return (
             <div>
-                GritNew?
+                <GritForm /> 
             </div>
                 
         );
