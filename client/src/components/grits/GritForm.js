@@ -8,7 +8,9 @@ class GritForm extends Component {
     renderFields(){
         return (
             <div>
-               <Field type="text" name="task" component={GritField} /> 
+               <Field label="Task to do" type="text" name="task" component={GritField} /> 
+                <Field label="Important" type="checkbox" name="urgenk" component={GritField} /> 
+
             </div>
         );    
         
